@@ -172,10 +172,10 @@ on:
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "ophub/kernel"
+        default: "wz102488/kernel"
         type: choice
         options:
-          - ophub/kernel
+          - wz102488/kernel
       kernel_usage:
         description: "Set the tags of the stable kernel."
         required: false
@@ -210,7 +210,7 @@ on:
         options:
           - ophub
           - angel
-          - yourname
+          - wz102488
 
 env:
   TZ: America/New_York
@@ -276,7 +276,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Upload Armbian image to Release
-        uses: ncipollo/release-action@main
+        uses: wz102488/release-action@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           tag: ${{ steps.clean.outputs.build_tag }}
@@ -285,7 +285,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Rebuild Armbian
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: wz102488/amlogic-s9xxx-armbian@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
