@@ -56,10 +56,10 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-wz102488"
         type: choice
         options:
-          - -ophub
+          - -wz102488
           - -yourname
 
 env:
