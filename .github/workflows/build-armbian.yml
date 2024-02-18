@@ -276,7 +276,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Upload Armbian image to Release
-        uses: wz102488/release-action@main
+        uses: ncipollo/release-action@main
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
         with:
           tag: ${{ steps.clean.outputs.build_tag }}
